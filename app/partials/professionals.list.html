@@ -1,0 +1,22 @@
+<div class="outer " >
+  <div class="middle">
+    <div class="container inner-wrapper">
+      <input type="checkbox" name="name" value="">
+      <span><strong>List Of Professionals</strong></span>
+      <ul class="grid">
+        <li ng-repeat="person in professionals">
+            <span class="inline-block">
+          <input type="checkbox" name="name" value="">
+        </span>
+          <span class="inline-block">
+          <img src="assets/images/users/one.jpg " alt="" class="avatar img-circle"/>
+           </span>
+          <span class="inline-block">
+            <span class="block">{{person.name}}</span>
+            <span class="block">{{person.email_id}}</span>
+          </span>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
