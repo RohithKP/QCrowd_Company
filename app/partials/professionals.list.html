@@ -3,17 +3,20 @@
     <div class="container inner-wrapper">
       <input type="checkbox" name="name" value="">
       <span><strong>List Of Professionals</strong></span>
-      <ul class="grid">
-        <li ng-repeat="person in professionals">
-            <span class="inline-block">
+      <ul class="grid ">
+        <li ng-repeat="person in professionals" class="table">
+            <span class="cell-top">
           <input type="checkbox" name="name" value="">
         </span>
-          <span class="inline-block">
+          <span class="cell-middle">
           <img src="assets/images/users/one.jpg " alt="" class="avatar img-circle"/>
            </span>
-          <span class="inline-block">
+          <span class="cell-middle">
             <span class="block">{{person.name}}</span>
             <span class="block">{{person.email_id}}</span>
+          </span>
+          <span class="cell-top">
+            <i class="fa fa-pencil"></i>
           </span>
       </li>
     </ul>

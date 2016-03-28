@@ -695,7 +695,18 @@ ul.grid li{
   background-color: #E9E9E9;
   box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.40);
 }
-
 .inner-wrapper{
   background-color: #fff;
+}
+
+.table{
+  display: table;
+}
+.cell-top{
+  display: table-cell;
+  vertical-align: top;
+}
+.cell-middle{
+  display: table-cell;
+  vertical-align: middle;
 }
