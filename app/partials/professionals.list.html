@@ -1,22 +1,28 @@
 <div class="outer " >
   <div class="middle">
-    <div class="container inner-wrapper">
+    <div class="container">
+      <div class="inner-wrapper" class="col-md-12">
       <input type="checkbox" name="name" value="">
-      <span><strong>List Of Professionals</strong></span>
+      <h6 class="inline pad-10-rl">List Of Professionals</h6>
+      <span class="pull-right"><i class="fa fa-plus-circle pad-10-rl"></i><i class="fa fa-trash"></i></span>
       <ul class="grid">
-        <li ng-repeat="person in professionals">
-            <span class="inline-block">
+        <li ng-repeat="person in professionals" class="dis-table col-md-4">
+            <span class="cell-top">
           <input type="checkbox" name="name" value="">
         </span>
-          <span class="inline-block">
-          <img src="assets/images/users/one.jpg " alt="" class="avatar img-circle"/>
+          <span class="cell-middle">
+          <img src="assets/images/users/two.jpg " alt="" class="avatar-md img-circle"/>
            </span>
-          <span class="inline-block">
+          <span class="cell-middle">
             <span class="block">{{person.name}}</span>
             <span class="block">{{person.email_id}}</span>
           </span>
+          <span class="cell-top">
+            <i class="fa fa-pencil"></i>
+          </span>
       </li>
     </ul>
+  </div>
   </div>
 </div>
 </div>

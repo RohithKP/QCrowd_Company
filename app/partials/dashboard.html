@@ -1,0 +1,113 @@
+<div class="outer " popover-close exclude-class="exclude">
+  <div class="top">
+    <div class="container">
+      <uib-tabset active="0">
+        <uib-tab index="0"  heading="TASK UNDER PROGRESS" active="tab.active" disable="tab.disabled">
+          <table class="table">
+            <tr>
+              <th class="col-md-1">#</th>
+              <th class="col-md-2">Task Name &nbsp;<i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'taskname.html'"  popover-elem></i></th>
+              <th class="col-md-2">Status &nbsp;<i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'status.html'" popover-elem></i></th>
+              <th class="col-md-2">Browsers &nbsp;<i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'browsers.html'" popover-elem></i></th>
+              <th class="col-md-2">User &nbsp;<i class="fa fa-filter exclude" popover popover-placement="bottom" uib-popover-template="'users.html'" popover-elem></i></th>
+            </tr>
+            <tr ng-repeat="project in projects  | projFilter:query.projectQuery |userFilter:query.userQuery |statusFilter:query.statusQuery |browserFilter:brarray ">
+              <td>{{project.id}}</td><td>{{project.name}}</td>
+              <td><span ng-class="{'fail':project.status.text=='Failed','pass':project.status.text=='Passed'}">{{project.status.text}}<uib-progressbar animate="false" value="project.status.percent" type="success"><b>{{project.status.percent}}%</b></uib-progressbar></span></td>
+              <td><span class="browser-icon-wrapper"><span class="browser-icon" ng-repeat="browser in project.browsers" ng-class="{pass:browser.status==1,fail:browser.status==0,muted:browser.status==-1}"><i class="fa fa-{{browser.platform}} platform-icon"></i><span class='version'>V 40.1</span><i  class="fa fa-{{browser.name}}">&nbsp;</i></span></span></td>
+              <td><img class="img-circle avatar " src="{{project.user.imgUrl}}"/> {{project.user.name}}</td>
+            </tr>
+          </table>
+        </uib-tab>
+        <uib-tab index="1"  heading="ASSIGN TASK" active="tab.active" disable="tab.disabled">
+          <div class="">
+            <div class="project-item" >
+              <input type="checkbox" name="name" style="visibility:hidden"> <span><strong>Project Name</strong></span>
+            </div>
+            <div class="project-list">
+              <li class="project-item" ng-repeat="project in projects"><input type="radio" name="radio" value={{project.name}} ng-checked="helpers.isItem(projectsSelected,project.id)"  ng-click="addSelected(project.id)"> {{project.name}}</li>
+              <div class="text-center pad-20-tb" ng-hide="helpers.empty(projectsSelected)">
+                <button type="" class="btn btn-custom-dark" name="button" ng-click="helpers.modalOpen('assignTask.html','tskInstanceCtrl','',assgnTskResolver)">ASSIGN</button>
+              </div>
+            </div>
+          </div>
+        </uib-tab>
+        <uib-tab index="2"  heading="SUGGESTED TASK" active="tab.active" disable="tab.disabled">
+        </uib-tab>
+        <uib-tab index="3"  heading="HISTORY" active="tab.active" disable="tab.disabled">
+
+        </uib-tab>
+      </uib-tabset>
+    </div>
+  </div>
+</div>
+<!-- templates -->
+<script type="text/ng-template" id="assignTask.html">
+  <div class="modal-header">
+    <h3 class="modal-title">ASSIGN TASK</h3>
+  </div>
+  <div class="modal-body">
+    <div class="modal-content-wrapper">
+      <div class="col-md-6">
+        <div class="form-group has-feedback">
+          <label for="">Choose Platform</label>
+           <select class="form-control" ng-model="platformOptions.selected" ng-options="o as o for o in platformOptions.options"></select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="">Choose Browsers</label>
+        <div class="">
+          <span><i ng-repeat="browser in browsers" class="fa fa-{{browser}} modal-browser-icons muted"  ng-class="{'browser-selected':brarray.indexOf(browser) >-1}" ng-click="helpers.toggleSelect(brarray,browser)"></i></span>
+        </div>
+        <div class="xs-text text-right underline"><a href="#">Request additional browser support</a></div>
+      </div>
+      <div class="col-md-12 text-center mar-right-20 mar-top-20">
+        <button class="btn btn-custom-light" type="button" ng-click="cancel()">CANCEL</button>
+        <button class="btn btn-custom-dark" type="button" ng-click="proceed()">ASSIGN</button>
+      </div>
+    </div>
+  </script>
+
+  <script id="taskname.html" type="text/ng-template">
+    <div class="popup">
+      <ul ng-click="$event.stopPropagation();">
+        <li class="no-hover"><input placeholder="Task Name" type="text" ng-model="query.projectQuery"  uib-typeahead="project.name for project in projects | filter:$viewValue | limitTo:8" /></li>
+      </ul>
+    </div>
+  </script>
+  <script id="status.html" type="text/ng-template">
+    <div class="popup">
+      <ul >
+        <li ng-click="filterStatus($event,'')" ng-class="{selected:query.statusQuery ==''}">Both </li>
+        <li class="divider"></li>
+        <li ng-click="filterStatus($event,'failed')" ng-class="{selected:query.statusQuery =='failed'}">Failed</li>
+        <li class="divider"></li>
+        <li ng-click="filterStatus($event,'passed')" ng-class="{selected:query.statusQuery =='passed'}">Passed</li>
+      </ul>
+    </div>
+  </script>
+  <script id="browsers.html" type="text/ng-template">
+    <div class="popup" ng-click="$event.stopPropagation();">
+      <ul style="text-align:center;">
+        <li  class="dropdown">
+          <span class="btn-group" uib-dropdown keyboard-nav>
+            <button id="simple-btn-keyboard-nav" type="button" class="btn " uib-dropdown-toggle>
+              {{platform}} <span class="caret"></span>
+            </button>
+            <ul uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+              <li role="menuitem" ng-repeat="platform in platforms" ng-click="platForm(platform)">{{platform}}</li>
+            </ul>
+          </span>
+        </li>
+        <li class="divider"></li>
+        <li><span class=""><i ng-repeat="browser in query.browsers" class="fa fa-{{browser}} filter-browser-icon"  ng-class="{'browser-selected':brarray.indexOf(browser) >-1}" ng-click="helpers.toggleSelect(brarray,browser)"></i></span></li>
+      </ul>
+    </div>
+  </script>
+  <script id="users.html" type="text/ng-template">
+    <div class="popup" ng-click="$event.stopPropagation();">
+      <ul>
+        <li class="no-hover"><input placeholder="user" type="text" ng-model="query.userQuery"  uib-typeahead="project.user.name for project in projects | filter:$viewValue | limitTo:8" /></li>
+      </ul>
+    </div>
+  </script>
