@@ -17,5 +17,15 @@ angular.module('QCrowdCompany',['ui.router','ngAnimate','ui.bootstrap']).config(
     templateUrl: 'partials/professionals.list.html',
     controller: 'profListCtrl'
   })
+  .state('dashboard', {
+    url: '/dashboard',
+    templateUrl: 'partials/dashboard.html',
+    controller: 'dashBoardCtrl'
+  })
+  .state('asgnTask', {
+    url: '/asgnTask',
+    templateUrl: 'partials/asgnTask.html',
+    controller: 'asgnTaskCtrl'
+  })
 
 });
