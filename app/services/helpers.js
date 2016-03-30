@@ -24,15 +24,14 @@ angular.module("QCrowdCompany").factory('helpers', function($uibModal) {
     },
     selectAll :function (array,items) {
       if(!this.allSelected(array,items)){
-        array = [];
+        array.length=0;
         angular.forEach(items,function(item){
           array.push(item.id);
           console.log(array);
         })
       }else {
-           array = [];
+           array.length=0;
       }
-      return array;
     },
     deleteItem : function (array,items) {
       var new_arr = array;
@@ -43,7 +42,7 @@ angular.module("QCrowdCompany").factory('helpers', function($uibModal) {
        }
        console.log(pos);
       });
-        array = [];
+        array.length=0;
     },
     total:function (array) {
       return array.reduce(function(a, b) {return a + b;});

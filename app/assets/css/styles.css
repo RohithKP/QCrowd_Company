@@ -9,6 +9,14 @@ body{
 /*.main-view-wrapper{
   padding: 70px 0;
 }*/
+/*h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+}*/
+h5{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .navbar-inverse{
   background-color: #303840;
 }
@@ -396,12 +404,12 @@ div.modal-env-wrapper i {display: none;}
 div.modal-env-wrapper.bar:hover i {display: inline;}
 
 @media (min-width: 768px){
-.modal-dialog {
-    min-width: 680px;
-    margin: 30px auto;
-}
+
 .modal-xl{
   width: 80%;
+}
+.modal-550{
+  max-width: 550px;
 }
 }
 .modal-body{
@@ -689,18 +697,22 @@ ul.grid{
 ul.grid li{
 	padding: 5px;
 	float:left;
-  height: 80px;
-  width: 320px;
-  margin: 30px;
+  height: 70px;
+  width: 310px;
+  margin: 25px;
   background-color: #E9E9E9;
   box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.40);
 }
 .inner-wrapper{
   background-color: #fff;
+      padding: 30px;
 }
 
-.table{
+.dis-table{
   display: table;
+}
+.inline{
+  display: inline;
 }
 .cell-top{
   display: table-cell;
@@ -709,4 +721,53 @@ ul.grid li{
 .cell-middle{
   display: table-cell;
   vertical-align: middle;
+}
+.avatar-md{
+  height: 50px;
+  width: 50px;
+}
+.pad-10-rl{
+  padding: 0 10px;
+}
+.pad-10-l{
+  padding: 0 0 0 10px;
+}
+.pad-10-r{
+  padding: 0 10px 0 0;
+}
+.pad-15-rl{
+  padding: 0 15px;
+}
+.pad-20-rl{
+  padding: 0 20px;
+}
+.pad-20-tb{
+  padding: 20px 0;
+}
+.pad-20-t{
+  padding: 20px 0 0 0 ;
+}
+.mar-15-b{
+  margin-bottom: 15px;
+}
+.mar-20-b{
+  margin-bottom: 20px;
+}
+.brdiv{
+  border-right: 1px solid #ccc;
+margin-top: -20px;
+padding: 40px 0;
+}
+.li-br{
+  border-right: 2px solid #2c3748;
+}
+.img-lg{
+  float: left;
+  height: 100px;
+  width: 100px;
+  background: #D8D8D8;
+  margin-right: 45px;
+}
+.overflow-auto{
+  overflow: auto;
 }
