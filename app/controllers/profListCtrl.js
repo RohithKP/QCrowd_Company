@@ -1,4 +1,4 @@
-angular.module('QCrowdCompany').controller('profListCtrl',['$scope','helpers',function ($scope,helpers) {
+angular.module('QCrowdCompany').controller('profListCtrl',['$scope','helpers','dataFactory',function ($scope,helpers,dataFactory) {
 $scope.helpers = helpers;
 $scope.professionals = [{"id":"1","name":"Aron Swartz","email_id":"Aron@abcd.com"},{"id":"2","name":"Aron Swartz","email_id":"Aron@abcd.com"},{"id":"3","name":"Aron Swartz","email_id":"Aron@abcd.com"},{"id":"4","name":"Aron Swartz","email_id":"Aron@abcd.com"},
 {"id":"5","name":"Aron Swartz","email_id":"Aron@abcd.com"},{"id":"6","name":"Aron Swartz","email_id":"Aron@abcd.com"},{"id":"7","name":"Aron Swartz","email_id":"Aron@abcd.com"},{"id":"8","name":"Aron Swartz","email_id":"Aron@abcd.com"},{"id":"9","name":"Aron Swartz","email_id":"Aron@abcd.com"}];
@@ -30,4 +30,10 @@ $scope.addProfResolver = {
                 }
               }
   }
+  $scope.professionals = dataFactory.professionals.query();
+  $scope.viewby = {
+  options: [10,25,50,100],
+  selected: 10
+};
+ $scope.currentPage = 1;
 }]);

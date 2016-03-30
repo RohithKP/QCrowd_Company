@@ -1,16 +1,16 @@
-angular.module('QCrowdCompany',['ui.router','ngAnimate','ui.bootstrap']).config(function ($stateProvider,$urlRouterProvider) {
+angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstrap']).config(function ($stateProvider,$urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 
   $stateProvider
   .state('login', {
     url: '/login',
     templateUrl: 'partials/login.html',
-    controller: ''
+    controller: 'validationCtrl'
   })
   .state('register', {
     url: '/register',
     templateUrl: 'partials/register.html',
-    controller: ''
+    controller: 'validationCtrl'
   })
   .state('proflist', {
     url: '/professionals',
