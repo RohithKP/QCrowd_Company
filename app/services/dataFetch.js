@@ -1,3 +1,7 @@
-angular.module('QCrowdCompany').factory('profDataFactory', function($resource) {
-  return $resource('./assets/json/professional.json', {});
-});
+angular.module('QCrowdCompany').factory('dataFactory',['$resource',function($resource) {
+  return{
+    professionals: $resource('./assets/json/professional.json', {}),
+    projects : $resource('./assets/json/projects.json', {})
+  };
+
+}]);
