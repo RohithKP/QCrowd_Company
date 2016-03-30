@@ -23,6 +23,15 @@
       </li>
     </ul>
   </div>
+  <div>
+    <div id="select-num" class="inline-block col-md-4 top-padding">Show <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select></div>
+    <div id="pagin-div" class="inline-block col-md-4">
+      <uib-pagination total-items="495" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
+    </div>
+    <div id="input-page" class="inline-block col-md-4 top-padding">
+      Go to <input type="number" name="page" ng-model="pageNo">/99
+    </div>
+  </div>
   </div>
 </div>
 </div>

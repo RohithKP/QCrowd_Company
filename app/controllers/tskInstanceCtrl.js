@@ -1,4 +1,4 @@
-angular.module('QCrowdCompany').controller('tskInstanceCtrl', function ($scope, $uibModalInstance,helpers,message) {
+angular.module('QCrowdCompany').controller('tskInstanceCtrl',['$scope', '$uibModalInstance','helpers','message',function ($scope, $uibModalInstance,helpers,message) {
   $scope.proceed = function () {
     $uibModalInstance.close();
   };
@@ -9,4 +9,4 @@ angular.module('QCrowdCompany').controller('tskInstanceCtrl', function ($scope, 
   $scope.browsers = message.browsers;
   $scope.brarray = message.brarray;
   $scope.platformOptions = message.platformOptions;
-});
+}]);

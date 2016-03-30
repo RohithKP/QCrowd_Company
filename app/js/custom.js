@@ -1,4 +1,4 @@
-angular.module('QCrowdCompany',['ui.router','ngAnimate','ui.bootstrap']).config(function ($stateProvider,$urlRouterProvider) {
+angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstrap']).config(function ($stateProvider,$urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 
   $stateProvider
