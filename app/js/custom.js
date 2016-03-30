@@ -5,12 +5,12 @@ angular.module('QCrowdCompany',['ui.router','ngAnimate','ui.bootstrap']).config(
   .state('login', {
     url: '/login',
     templateUrl: 'partials/login.html',
-    controller: ''
+    controller: 'validationCtrl'
   })
   .state('register', {
     url: '/register',
     templateUrl: 'partials/register.html',
-    controller: ''
+    controller: 'validationCtrl'
   })
   .state('proflist', {
     url: '/professionals',

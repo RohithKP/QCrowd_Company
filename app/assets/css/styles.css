@@ -761,3 +761,13 @@ padding: 40px 0;
 .li-br{
   border-right: 2px solid #2c3748;
 }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.btn-custom-dark.focus,.btn-custom-dark:focus {
+    color: #EFEFEF;
+    text-decoration: none;
+}
