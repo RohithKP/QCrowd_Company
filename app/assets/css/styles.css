@@ -9,9 +9,13 @@ body{
 /*.main-view-wrapper{
   padding: 70px 0;
 }*/
-h1,h2,h3,h4,h5,h6{
+/*h1,h2,h3,h4,h5,h6{
   margin: 0;
   padding: 0;
+}*/
+h5{
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .navbar-inverse{
   background-color: #303840;
@@ -742,4 +746,18 @@ ul.grid li{
 }
 .pad-20-t{
   padding: 20px 0 0 0 ;
+}
+.mar-15-b{
+  margin-bottom: 15px;
+}
+.mar-20-b{
+  margin-bottom: 20px;
+}
+.brdiv{
+  border-right: 1px solid #ccc;
+margin-top: -20px;
+padding: 40px 0;
+}
+.li-br{
+  border-right: 2px solid #2c3748;
 }
