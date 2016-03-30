@@ -404,12 +404,12 @@ div.modal-env-wrapper i {display: none;}
 div.modal-env-wrapper.bar:hover i {display: inline;}
 
 @media (min-width: 768px){
-.modal-dialog {
-    min-width: 680px;
-    margin: 30px auto;
-}
+
 .modal-xl{
   width: 80%;
+}
+.modal-550{
+  max-width: 550px;
 }
 }
 .modal-body{
@@ -760,4 +760,14 @@ padding: 40px 0;
 }
 .li-br{
   border-right: 2px solid #2c3748;
+}
+.img-lg{
+  float: left;
+  height: 100px;
+  width: 100px;
+  background: #D8D8D8;
+  margin-right: 45px;
+}
+.overflow-auto{
+  overflow: auto;
 }
