@@ -13,7 +13,7 @@ angular.module('QCrowdCompany').controller('dashBoardCtrl',['$scope','helpers','
     $scope.query.statusQuery =txt;
   }
   $scope.query.browsers = ['firefox','chrome','safari','opera'];
-  $scope.platforms = ['platforms','windows 10','windows 8','iOS 8','ubuntu'];
+  $scope.testers = ['Tester Name','Rohith','Dan','diaz','koya'];
   $scope.model = {
     name: 'Tabs'
   };
@@ -31,15 +31,15 @@ angular.module('QCrowdCompany').controller('dashBoardCtrl',['$scope','helpers','
       $scope.projectsSelected= [];
     }
   }
-  $scope.platformOptions =   {
-    options:    $scope.platforms,
-    selected:   'platforms'
+  $scope.testerOptions =   {
+    options:    $scope.testers,
+    selected:    $scope.testers[0]
   };
   $scope.assgnTskResolver={
     message: {
       browsers : ["chrome","firefox","internet-explorer","safari","opera"],
       brarray : [],
-      platformOptions:$scope.platformOptions
+      testerOptions:$scope.testerOptions
     }
   }
   $scope.viewby = {

@@ -21,12 +21,9 @@
               <a class="nav-brand" ui-sref="#"><img src="assets/images/QB_logo.png" alt="" /></a>
             </div>
             <div id="userDown" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+              <!-- <ul class="nav navbar-nav">
                 <li><a ui-sref="login" ui-sref-active="">login</a></li>
-                <li><a ui-sref="proflist" ui-sref-active="">professionals</a></li>
-                <li><a ui-sref="dashboard" ui-sref-active="">dashboard</a></li>
-                <li><a ui-sref="asgnTask" ui-sref-active="">asgnTask</a></li>
-              </ul>
+              </ul> -->
               <div class="text-right">
               <span class="inline-block">
                 <span class="block welcome">Welcome</span>
@@ -59,9 +56,9 @@
         </footer>
         <script id="userData.html" type="text/ng-template">
           <div  class="popup popupHover">
-            <ul ng-click="$event.stopPropagation();" class="fa-i-margin-right">
+            <ul class="fa-i-margin-right">
              <li><i class="fa fa-user fa-lg"></i><span>My Profile</span></li>
-             <li><i class="fa fa-list-alt fa-lg"></i></i><span >List of members</span></li>
+             <li ui-sref="dashboard.proflist"  ui-sref-active=""><i class="fa fa-list-alt fa-lg"></i></i><span >List Of Members</span></li>
              <li><i class="fa fa-cogs fa-lg"></i><span >Settings</span></li>
              <li><i class="fa fa-sign-out fa-lg"></i><span>Log Out</span></li>
             </ul>
@@ -70,6 +67,7 @@
         <script type="text/javascript" src="js/custom.js">  </script>
         <script type="text/javascript" src="directives/validation.js"></script>
         <script type="text/javascript" src="directives/popover.js"></script>
+        <script type="text/javascript" src="directives/uiBreadcrumbs.js"></script>
         <script type="text/javascript" src="services/helpers.js"></script>
           <script type="text/javascript" src="services/dataFetch.js"></script>
         <script type="text/javascript" src="controllers/profListCtrl.js"></script>
