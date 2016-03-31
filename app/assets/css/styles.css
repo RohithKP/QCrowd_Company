@@ -5,6 +5,8 @@ body{
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
   color: #2c3742;
+  padding: 0;
+  margin: 0;
 }
 /*.main-view-wrapper{
   padding: 70px 0;
@@ -40,8 +42,8 @@ a:focus {
 /*login*/
 .outer {
     display: table;
-    position: absolute;
-    height: 100%;
+    /*position: absolute;*/
+    height: 100vh;
     padding : 0px;
     width: 100%;
 }
@@ -359,13 +361,17 @@ margin: 4px 10px;
   color:#2C3742;
 }
 /*projects tab*/
-.project-list{
+.testCase-list{
 
 }
-.project-item{
+.testCase-item{
   list-style: none;
   height: 65px;
   padding: 22px;
+cursor: pointer;
+}
+.gray-hover:hover{
+    background: rgba(204, 204, 204, 0.42);
 }
 .project-item input{
   margin-right: 20px;
@@ -682,6 +688,7 @@ margin-right: 10px;
 .popup.popupHover li:hover {
   background-color: #2C3742;
   color: #fff;
+  cursor: pointer;
 }
 
 /*professionals -grid view*/
@@ -750,6 +757,12 @@ ul.grid li{
 .mar-15-b{
   margin-bottom: 15px;
 }
+input[type=radio].mar-15-r{
+  margin-right: 15px;
+}
+.mar-15-r{
+  margin-right: 15px;
+}
 .mar-20-b{
   margin-bottom: 20px;
 }
@@ -809,4 +822,11 @@ input[type=number]::-webkit-outer-spin-button {
   width: 40px;
   border: 1px solid #D6CECE;
   border-radius: 9px;
+}
+.bread-crumbs{
+  position: relative;
+  top: 58px;
+}
+.breadcrumb{
+  margin: 0;
 }
