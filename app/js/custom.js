@@ -19,7 +19,7 @@ angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstr
       'mainView@dashboard':{templateUrl:'partials/dashboard.html', controller:'dashBoardCtrl'}
     },
     data: {
-    displayName: 'DashBoard'
+    displayName: 'Home'
     }
 
   })
@@ -29,11 +29,11 @@ angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstr
       'mainView@dashboard':{templateUrl:'partials/professionals.list.html', controller:'profListCtrl'}
     },
     data: {
-    displayName: 'List Of Users'
+    displayName: 'List Of professionals'
 }
   })
   .state('dashboard.asgnTask', {
-    url: '^/asgnTask',
+    url: '^/asgnTask/:key',
     views:{
       'mainView@dashboard':{templateUrl:'partials/asgnTask.html', controller:'asgnTaskCtrl'}
     },
