@@ -34,8 +34,8 @@
               <input type="checkbox" name="name" style="visibility:hidden"> <span><strong>Test Case Name</strong></span>
             </div>
             <div class="testCase-list">
-              <li ui-sref="dashboard.asgnTask" class="testCase-item gray-hover" ng-repeat="project in projects">
-              <input type="radio" name="radio" value={{project.name}} ng-checked="helpers.isItem(projectsSelected,project.id)"  ng-click="$event.stopPropagation();addSelected(project.id)" class="mar-15-r"> <span>{{project.name}}</span></li>
+              <li ui-sref="dashboard.asgnTask({key:project.name})" class="testCase-item gray-hover" ng-repeat="project in projects">
+              <input type="radio" name="radio" value={{project.name}} ng-checked="helpers.isItem(projectsSelected,project.id)"  ng-click="$event.stopPropagation();addSelected(project.id,project.name);" class="mar-15-r"> <span>{{project.name}}</span></li>
               <div class="text-center pad-20-tb" ng-hide="helpers.empty(projectsSelected)">
                 <button type="" class="btn btn-custom-dark" name="button" ng-click="helpers.modalOpen('partials/assignTasktpl.html','tskInstanceCtrl','',assgnTskResolver)">ASSIGN</button>
               </div>

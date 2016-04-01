@@ -637,7 +637,7 @@ border-radius: 0 4px 0 0 ;
 }
 .modal-browser-icons{
   font-size: 24px;
-  margin: 5px 20px 5px 0;
+  margin: 5px 17px 5px 0;
   cursor: pointer;
 }
 .xs-text{
@@ -829,4 +829,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .breadcrumb{
   margin: 0;
+}
+.breadcrumb>li+li:before{
+      content: ">\00a0";
+}
+.border-1px{
+  border: 1px solid #ccc;
+      padding: 7px 5px;
 }

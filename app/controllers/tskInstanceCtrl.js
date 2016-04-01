@@ -8,5 +8,6 @@ angular.module('QCrowdCompany').controller('tskInstanceCtrl',['$scope', '$uibMod
   $scope.helpers = helpers;
   $scope.browsers = message.browsers;
   $scope.brarray = message.brarray;
+  $scope.tcName=message.testCaseName;
   $scope.testerOptions = message.testerOptions;
 }]);
