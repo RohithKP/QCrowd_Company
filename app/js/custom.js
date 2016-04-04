@@ -43,3 +43,10 @@ angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstr
   })
 
 });
+
+angular.module("QCrowdCompany").run(function ($rootScope, $state, $stateParams) {
+  $rootScope.$state = $state;
+  $rootScope.$stateParams = $stateParams;
+  $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams) {
+  });
+});
