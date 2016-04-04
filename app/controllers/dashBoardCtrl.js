@@ -1,6 +1,10 @@
 
-angular.module('QCrowdCompany').controller('dashBoardCtrl',['$scope','helpers','$window','$document','$log','dataFactory',function ($scope,helpers,$window,$document,$log,dataFactory) {
-  $scope.projects =dataFactory.projects.query();
+angular.module('QCrowdCompany').controller('dashBoardCtrl',['$scope','helpers','$window','$document','$log','projects',function ($scope,helpers,$window,$document,$log,projects) {
+  projects.$promise.then(
+    function (data) {
+      $scope.projects =  data;
+    },function () {}
+  );
 
  $scope.tcName = undefined;
   $scope.query = {projectQuery:'',userQuery:'',statusQuery:'',browserQuery:''};
@@ -44,13 +48,12 @@ angular.module('QCrowdCompany').controller('dashBoardCtrl',['$scope','helpers','
     }
   }
   $scope.viewby = {
-    options: [
-      10,
-      25,
-      50,
-      100
-    ],
+    options: [10,25,50,100],
     selected: 10
   };
    $scope.currentPage = 1;
+   $scope.platformOptions = {
+   options: ['platform','windows 10','windows 8','iOS 8','ubuntu'],
+   selected: 'platform'
+  };
 }]);
