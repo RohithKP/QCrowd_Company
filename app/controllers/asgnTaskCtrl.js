@@ -22,7 +22,7 @@ angular.module('QCrowdCompany').controller('asgnTaskCtrl',['$scope','helpers','$
               brarray : [],
               testerOptions:$scope.testerOptions,
               testCaseName:$stateParams.key
-               }
+        }
       }
     }
 }]);
