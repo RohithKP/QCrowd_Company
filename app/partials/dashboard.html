@@ -30,13 +30,14 @@
         </uib-tab>
         <uib-tab index="1"  heading="ASSIGN TASK" active="tab.active" disable="tab.disabled">
           <div class="">
-            <div class="project-item" >
-              <input type="checkbox" name="name" style="visibility:hidden"> <span><strong>Project Name</strong></span>
+            <div class="testCase-item" >
+              <input type="checkbox" name="name" style="visibility:hidden"> <span><strong>Test Case Name</strong></span>
             </div>
-            <div class="project-list">
-              <li class="project-item" ng-repeat="project in projects"><input type="radio" name="radio" value={{project.name}} ng-checked="helpers.isItem(projectsSelected,project.id)"  ng-click="addSelected(project.id)"> {{project.name}}</li>
+            <div class="testCase-list">
+              <li ui-sref="dashboard.asgnTask({key:project.name})" class="testCase-item gray-hover" ng-repeat="project in projects">
+              <input type="radio" name="radio" value={{project.name}} ng-checked="helpers.isItem(projectsSelected,project.id)"  ng-click="$event.stopPropagation();addSelected(project.id,project.name);" class="mar-15-r"> <span>{{project.name}}</span></li>
               <div class="text-center pad-20-tb" ng-hide="helpers.empty(projectsSelected)">
-                <button type="" class="btn btn-custom-dark" name="button" ng-click="helpers.modalOpen('assignTask.html','tskInstanceCtrl','',assgnTskResolver)">ASSIGN</button>
+                <button type="" class="btn btn-custom-dark" name="button" ng-click="helpers.modalOpen('partials/assignTasktpl.html','tskInstanceCtrl','',assgnTskResolver)">ASSIGN</button>
               </div>
             </div>
           </div>
@@ -60,31 +61,6 @@
   </div>
 </div>
 <!-- templates -->
-<script type="text/ng-template" id="assignTask.html">
-  <div class="modal-header">
-    <h3 class="modal-title">ASSIGN TASK</h3>
-  </div>
-  <div class="modal-body">
-    <div class="modal-content-wrapper">
-      <div class="col-md-6">
-        <div class="form-group has-feedback">
-          <label for="">Choose Platform</label>
-           <select class="form-control" ng-model="platformOptions.selected" ng-options="o as o for o in platformOptions.options"></select>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label for="">Choose Browsers</label>
-        <div class="">
-          <span><i ng-repeat="browser in browsers" class="fa fa-{{browser}} modal-browser-icons muted"  ng-class="{'browser-selected':brarray.indexOf(browser) >-1}" ng-click="helpers.toggleSelect(brarray,browser)"></i></span>
-        </div>
-        <div class="xs-text text-right underline"><a href="#">Request additional browser support</a></div>
-      </div>
-      <div class="col-md-12 text-center mar-right-20 mar-top-20">
-        <button class="btn btn-custom-light" type="button" ng-click="cancel()">CANCEL</button>
-        <button class="btn btn-custom-dark" type="button" ng-click="proceed()">ASSIGN</button>
-      </div>
-    </div>
-  </script>
 
   <script id="taskname.html" type="text/ng-template">
     <div class="popup">

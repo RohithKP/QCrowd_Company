@@ -1,4 +1,4 @@
-angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstrap']).config(function ($stateProvider,$urlRouterProvider) {
+angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstrap','angularUtils.directives.uiBreadcrumbs']).config(function ($stateProvider,$urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 
   $stateProvider
@@ -12,20 +12,41 @@ angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstr
     templateUrl: 'partials/register.html',
     controller: 'validationCtrl'
   })
-  .state('proflist', {
-    url: '/professionals',
-    templateUrl: 'partials/professionals.list.html',
-    controller: 'profListCtrl'
-  })
   .state('dashboard', {
     url: '/dashboard',
-    templateUrl: 'partials/dashboard.html',
-    controller: 'dashBoardCtrl'
+    views:{
+      '':{templateUrl: 'partials/home.html'},
+      'mainView@dashboard':{templateUrl:'partials/dashboard.html', controller:'dashBoardCtrl'}
+    },
+    data: {
+    displayName: 'Home'
+    }
+
   })
-  .state('asgnTask', {
-    url: '/asgnTask',
-    templateUrl: 'partials/asgnTask.html',
-    controller: 'asgnTaskCtrl'
+  .state('dashboard.proflist', {
+    url: '^/professionals',
+    views:{
+      'mainView@dashboard':{templateUrl:'partials/professionals.list.html', controller:'profListCtrl'}
+    },
+    data: {
+    displayName: 'List Of professionals'
+}
+  })
+  .state('dashboard.asgnTask', {
+    url: '^/asgnTask/:key',
+    views:{
+      'mainView@dashboard':{templateUrl:'partials/asgnTask.html', controller:'asgnTaskCtrl'}
+    },
+    data: {
+    displayName: 'Assign Task'
+}
   })
 
+});
+
+angular.module("QCrowdCompany").run(function ($rootScope, $state, $stateParams) {
+  $rootScope.$state = $state;
+  $rootScope.$stateParams = $stateParams;
+  $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams) {
+  });
 });

@@ -1,11 +1,8 @@
 
 angular.module('QCrowdCompany').controller('dashBoardCtrl',['$scope','helpers','$window','$document','$log','dataFactory',function ($scope,helpers,$window,$document,$log,dataFactory) {
   $scope.projects =dataFactory.projects.query();
-  $scope.alertMe = function() {
-    setTimeout(function() {
-      $window.alert('You\'ve selected the alert tab!');
-    });
-  };
+
+ $scope.tcName = undefined;
   $scope.query = {projectQuery:'',userQuery:'',statusQuery:'',browserQuery:''};
 
   $scope.filterStatus = function($event,txt){
@@ -13,7 +10,7 @@ angular.module('QCrowdCompany').controller('dashBoardCtrl',['$scope','helpers','
     $scope.query.statusQuery =txt;
   }
   $scope.query.browsers = ['firefox','chrome','safari','opera'];
-  $scope.platforms = ['platforms','windows 10','windows 8','iOS 8','ubuntu'];
+  $scope.testers = ['Tester Name','Rohith','Dan','diaz','koya'];
   $scope.model = {
     name: 'Tabs'
   };
@@ -23,23 +20,27 @@ angular.module('QCrowdCompany').controller('dashBoardCtrl',['$scope','helpers','
   $scope.modalOpen = helpers.modalOpen;
   $scope.projectsSelected= [];
 
-  $scope.addSelected = function (id) {
+  $scope.addSelected = function (id,tname) {
     if($scope.projectsSelected[0]!=id){
       $scope.projectsSelected= [];
       $scope.projectsSelected.push(id);
     }else {
       $scope.projectsSelected= [];
     }
+    $scope.tcName=tname;
   }
-  $scope.platformOptions =   {
-    options:    $scope.platforms,
-    selected:   'platforms'
+  $scope.testerOptions =   {
+    options:    $scope.testers,
+    selected:    $scope.testers[0]
   };
   $scope.assgnTskResolver={
-    message: {
-      browsers : ["chrome","firefox","internet-explorer","safari","opera"],
-      brarray : [],
-      platformOptions:$scope.platformOptions
+    message: function () {
+          return {
+            browsers : ["chrome","firefox","internet-explorer","safari","opera"],
+            brarray : [],
+            testerOptions:$scope.testerOptions,
+            testCaseName:$scope.tcName
+          }
     }
   }
   $scope.viewby = {

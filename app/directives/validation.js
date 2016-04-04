@@ -32,6 +32,7 @@ angular.module('QCrowdCompany').directive('showErrors', function ($timeout, show
           return toggleClasses(invalid);
         });
         scope.$on('show-errors-check-validity', function () {
+
           return toggleClasses(formCtrl[inputName].$invalid);
         });
         scope.$on('show-errors-reset', function () {
