@@ -36,7 +36,7 @@ a:focus {
   /*border-radius: 4px 4px 0 0 ;*/
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-    border-top: 2px solid red;
+    border-top: 2px solid #FF4F02;
 }
 
 /*login*/
