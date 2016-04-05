@@ -1,4 +1,4 @@
-angular.module('QCrowdCompany').controller('profListCtrl',['$scope','helpers','dataFactory',function ($scope,helpers,dataFactory) {
+angular.module('QCrowdCompany').controller('profListCtrl',['$scope','helpers','professionals',function ($scope,helpers,professionals) {
 $scope.helpers = helpers;
 
 $scope.roles=['Role*','Role1','Role2'];
@@ -28,7 +28,11 @@ $scope.addProfResolver = {
                 }
               }
   }
-  $scope.professionals = dataFactory.professionals.query();
+  professionals.$promise.then(
+    function (data) {
+      $scope.professionals =  data;
+    },function () {}
+  );
   $scope.viewby = {
   options: [10,25,50,100],
   selected: 10

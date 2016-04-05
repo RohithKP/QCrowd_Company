@@ -1,4 +1,5 @@
-angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstrap','angularUtils.directives.uiBreadcrumbs']).config(function ($stateProvider,$urlRouterProvider) {
+angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstrap','angularUtils.directives.uiBreadcrumbs'])
+.config(function ($stateProvider,$urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 
   $stateProvider
@@ -20,8 +21,12 @@ angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstr
     },
     data: {
     displayName: 'Home'
-    }
-
+  },
+  resolve: {
+        projects: function(dataFactory){
+            return dataFactory.projects.query();
+          }
+        }
   })
   .state('dashboard.proflist', {
     url: '^/professionals',
@@ -30,7 +35,12 @@ angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstr
     },
     data: {
     displayName: 'List Of professionals'
-}
+  },
+  resolve: {
+        professionals: function(dataFactory){
+            return dataFactory.professionals.query();
+          }
+        }
   })
   .state('dashboard.asgnTask', {
     url: '^/asgnTask/:key',
@@ -39,9 +49,13 @@ angular.module('QCrowdCompany',['ui.router','ngAnimate','ngResource','ui.bootstr
     },
     data: {
     displayName: 'Assign Task'
-}
+  },
+  resolve: {
+        steps: function(dataFactory){
+            return dataFactory.steps.query();
+          }
+        }
   })
-
 });
 
 angular.module("QCrowdCompany").run(function ($rootScope, $state, $stateParams) {

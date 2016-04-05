@@ -9,14 +9,14 @@
         <div class="form-wrapper">
           <form name="registerForm" novalidate>
             <div class="form-group has-feedback" show-errors='{showSuccess: true}'>
-              <input type="text" class="form-control" id=""  name="ownerName" ng-model="register.name" placeholder="Product Owner Name" required/>
+              <input type="text" class="form-control" id=""  name="ownerName" ng-model="register.name" placeholder="Company Name" required/>
               <span class="form-control-feedback" ><img src="assets/images/product_owner_name.png" alt="" /></span>
-              <p class="help-block" ng-if="registerForm.ownerName.$error.required">The Product owner name is required</p>
+              <p class="help-block" ng-if="registerForm.ownerName.$error.required">The Company name is required</p>
             </div>
             <div class="form-group has-feedback" show-errors='{showSuccess: true}'>
-              <input type="text" class="form-control" id="" name="website"  ng-model="register.website" placeholder="Product Owner Website" required/>
+              <input type="text" class="form-control" id="" name="website"  ng-model="register.website" placeholder="Company Website" required/>
               <span class=" form-control-feedback"  ><img src="assets/images/product_owner_website.png" alt="" /></span>
-              <p class="help-block" ng-if="registerForm.website.$error.required">The Product owner website is required</p>
+              <p class="help-block" ng-if="registerForm.website.$error.required">The Company website is required</p>
             </div>
             <div class="form-group has-feedback" show-errors='{showSuccess: true}'>
               <input type="text" class="form-control" id="" name="contact"  ng-model="register.contact" placeholder="Contact Person" required/>
@@ -39,6 +39,9 @@
             </div>
             <div class="text-center btn-wrapper">
               <button type="submit" name="button" class="btn btn-custom-dark" ng-click="submit()">SUBMIT</button>
+            </div>
+            <div class="text-center pad-top small-text">
+              <a ui-sref="login">Already have an account?</a>
             </div>
           </form>
       </div>
