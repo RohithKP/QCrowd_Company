@@ -839,6 +839,6 @@ input[type=number]::-webkit-outer-spin-button {
   border: 1px solid #ccc;
       padding: 7px 5px;
 }
-.chekbox-margin{
+#chekbox-margin{
   margin-right: 3px;
 }
