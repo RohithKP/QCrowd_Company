@@ -718,7 +718,7 @@ ul.grid li{
 .inner-wrapper{
   background-color: #fff;
   padding: 30px;
-  padding-top: 0px;
+  /*padding-top: 0px;*/
 }
 
 .dis-table{
