@@ -27,7 +27,6 @@ angular.module("QCrowdCompany").factory('helpers', function($uibModal) {
         array.length=0;
         angular.forEach(items,function(item){
           array.push(item.id);
-          console.log(array);
         })
       }else {
            array.length=0;
@@ -39,8 +38,7 @@ angular.module("QCrowdCompany").factory('helpers', function($uibModal) {
        pos = items.map(function(e) { return e.id; }).indexOf(id);
        if(pos>-1){
        items.splice(pos,1);
-       }
-       console.log(pos);
+       };
       });
         array.length=0;
     },
@@ -59,7 +57,6 @@ angular.module("QCrowdCompany").factory('helpers', function($uibModal) {
 
       modalInstance.result.then(function (x) {
       }, function () {
-      console.log('Modal dismissed at: ' + new Date());
       });
     }
 
