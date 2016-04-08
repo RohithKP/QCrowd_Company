@@ -46,10 +46,10 @@
               <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select>
             </div>
             <div id="pagin-div" class="inline-block col-md-4">
-              <uib-pagination total-items="495" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
+              <uib-pagination total-items="100" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
             </div>
             <div id="input-page" class="inline-block col-md-4 top-padding">
-              Go to <input type="number" name="page" ng-model="pageNo">/99
+              Go to <input type="number" name="page" ng-model="pageNo">/20
             </div>
           </div>
         </uib-tab>
@@ -64,9 +64,9 @@
               <span>{{project.name}}</span>
               </li>
               <div class="text-center pad-20-tb" ng-hide="helpers.empty(projectsSelected)">
-                <button type="" class="btn btn-custom-dark" name="button" ng-click="helpers.modalOpen('partials/assignTasktpl.html','tskInstanceCtrl','',assgnTskResolver)">
+                <a type="" class="btn btn-custom-dark" name="button" ng-click="helpers.modalOpen('partials/assignTasktpl.html','tskInstanceCtrl','',assgnTskResolver)">
                   ASSIGN
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -75,10 +75,10 @@
               <select ng-model="viewby.selected" ng-options="o as o for o in viewby.options"></select>
             </div>
             <div id="pagin-div" class="inline-block col-md-4">
-              <uib-pagination total-items="495" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
+              <uib-pagination total-items="100" items-per-page="5" ng-model="currentPage" max-size="4" previous-text="&lsaquo;" next-text="&rsaquo;" class="pagination-sm" boundary-link-numbers="true" rotate="true"></uib-pagination>
             </div>
             <div id="input-page" class="inline-block col-md-4 top-padding">
-              Go to <input type="number" name="page" ng-model="pageNo">/99
+              Go to <input type="number" name="page" ng-model="pageNo">/20
             </div>
           </div>
         </uib-tab>
